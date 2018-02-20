@@ -17,13 +17,13 @@ def ft_split(string):
             i += 1
             j += 1
     return (string)
-
-
+#
+#
 def main():
-    for i in range(1, len(sys.argv)):
-        array = ft_split(sys.argv[i])
-        for i in range(0, len(array)):
-            print array[i]
+    array = ' '.join(sys.argv[1:])
+    new = ft_split(array)
+    print ("\n".join(sorted(new)))
+
 
 
 if __name__ == "__main__":
