@@ -21,9 +21,9 @@ def ft_split(string):
 #
 def main():
     if len(sys.argv) > 1:
-        # TODO: fix sdfkjssldkfj asldkfjdlfkjsdlfkjs
-        new = ft_split(sys.argv[1])
-        print ' '.join(new[1:] + new[:1])
+        if sys.argv[1]:
+            new = ft_split(sys.argv[1])
+            print ' '.join(new[1:] + new[:1])
     else:
         print " "
 
