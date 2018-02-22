@@ -132,8 +132,20 @@ def main():
 
                 if re.match(r'([0-9][0-9]:[0-9]{2}:[0-9]{2})', timestamp):
                     hours = timestamp[0:2]
+                    hourss = int(hours)
+                    if hourss > 23:
+                        print "Wrong Format"
+                        exit()
                     minutes = timestamp[3:5]
+                    minutess = int(minutes)
+                    if minutess > 59:
+                        print "Wrong Format"
+                        exit()
                     seconds = timestamp[6:]
+                    secondss = int(seconds)
+                    if secondss > 59:
+                        print "Wrong Format"
+                        exit()
                 else:
                     print "Wrong Format"
                     exit()
