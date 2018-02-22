@@ -3,6 +3,8 @@
 import sys
 import calendar
 import re
+import time
+
 
 def ass_mo_num(month):
     if month == "janvier" or month == "Janvier":
@@ -82,56 +84,69 @@ def main():
         for i in range(1, len(sys.argv)):
             array = sys.argv[i].split(' ')
         if len(array) != 5:
-            print "Wrong Format (len)"
+            print "Wrong Format"
             exit()
         else:
             day = array[0]
             if day in lc_days or day in up_days:
                 daynum = ass_day_num(day)
-                print ("day: %s" % daynum)
+                day = daynum
             else:
-                print ("Wrong Format (day)")
+                print ("Wrong Format")
                 exit()
             date = array[1]
             if len(date) == 1 or len(date) == 2:
+                if len(date) == 1:
+                    date = '0' + date
+                    print (date)
                 try:
                     date = int(array[1])
                 except (TypeError, ValueError, AttributeError):
-                    print ('it\'s not an int date')
+                    print ('Wrong Format')
                     exit()
+                date = str(date)
             else:
-                print "Wrong Format (date)"
+                print "Wrong Format"
                 exit()
+
             month = array[2]
             if month in lc_mois or month in up_mois or month in lc_na_mois or month in up_na_mois:
                 monum = ass_mo_num(month)
-                print ("month: %s" % monum)
+                month = monum
             else:
-                print ("Wrong Format (month)")
+                print ("Wrong Format")
                 exit()
             year = array[3]
             if len(year) == 4:
                 try:
                     year = int(array[3])
                 except (TypeError, ValueError, AttributeError):
-                    print ("Wrong Format (year)")
+                    print ("Wrong Format")
                     exit()
+                year = str(year)
             else:
-                print "Wrong Format (year)"
+                print "Wrong Format"
                 exit()
             timestamp = array[4]
             if len(timestamp) == 8:
+
                 if re.match(r'([0-9][0-9]:[0-9]{2}:[0-9]{2})', timestamp):
-                    d = timestamp
+                    hours = timestamp[0:2]
+                    minutes = timestamp[3:5]
+                    seconds = timestamp[6:]
                 else:
-                    print "Wrong Format (timestamp)"
+                    print "Wrong Format"
                     exit()
             else:
-                print "Wrong Format (timestamp)"
+                print "Wrong Format"
                 exit()
+            items = [day, month, date, hours, minutes, seconds, year]
+            stuff = ' '.join(items)
+            times = time.strptime(stuff, "%A %B %d %H %M %S %Y")
+            mktim = time.mktime(times)
+            print mktim
     else:
         print ("\n"),
-
 
 
 
