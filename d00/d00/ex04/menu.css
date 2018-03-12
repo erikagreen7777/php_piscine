@@ -1,0 +1,51 @@
+.button {
+    background-color: #2DB6E3;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+body {
+    background-image: url("https://i.pinimg.com/originals/5c/08/41/5c08412dd5d1f0f2dbf78e4e8bf37ad2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}   
+
+.menu {
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 50%;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.menu:hover .dropdown-content {
+    display: block;
+}
+
+.menu:hover .button {
+    background-color: #2593B8;
+}
